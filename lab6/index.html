@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зургийн цомог портал - Лаборатори №6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="site-header">
+        <div class="logo-area">
+            <!-- Inline SVG дүрс -->
+            <svg class="site-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+            </svg>
+            <h1>Фото Портал</h1>
+        </div>
+        
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#gallery">Цомог</a></li>
+                <li><a href="#flip-section">3D Картууд</a></li>
+                <li><a href="#media-section">Видео</a></li>
+            </ul>
+            <!-- Dark mode болон Flip удирдлагын товч -->
+            <button id="theme-toggle" class="btn">🌙 Dark Mode</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <!-- Gallery хэсэг: Stagger эффект болон Animation -->
+        <section id="gallery" class="gallery-section">
+            <h2>Зургийн цомог (Stagger Animation)</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="--i: 1;">
+                    <img src="img/photo1.jpg" alt="Зураг 1" loading="lazy">
+                </div>
+                <div class="gallery-item" style="--i: 2;">
+                    <img src="img/photo2.jpg" alt="Зураг 2" loading="lazy">
+                </div>
+                <div class="gallery-item" style="--i: 3;">
+                    <img src="img/photo3.jpg" alt="Зураг 3" loading="lazy">
+                </div>
+                <div class="gallery-item" style="--i: 4;">
+                    <img src="img/photo4.jpg" alt="Зураг 4" loading="lazy">
+                </div>
+                <div class="gallery-item" style="--i: 5;">
+                    <img src="img/photo5.jpg" alt="Зураг 5" loading="lazy">
+                </div>
+                <div class="gallery-item" style="--i: 6;">
+                    <img src="img/photo6.jpg" alt="Зураг 6" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- 3D Flip Card хэсэг -->
+        <section id="flip-section" class="flip-container-section">
+            <h2>3D Flip Card (Эргэдэг карт)</h2>
+            <div class="flip-card" id="interactive-flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Үндсэн тал (Front)</h3>
+                        <p>Дээгүүр нь хулгана аваачих эсвэл товч дарж эргүүлнэ үү.</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Ар тал (Back)</h3>
+                        <p>Perspective болон preserve-3d ашиглан хийсэн 3D эффект.</p>
+                    </div>
+                </div>
+            </div>
+            <button id="flip-btn" class="btn margin-top">Картыг эргүүлэх</button>
+        </section>
+
+        <!-- Мультимедиа хэсэг (Video, Track, Iframe) -->
+        <section id="media-section" class="media-section">
+            <h2>Мультимедиа ба Видео контент</h2>
+            <div class="media-grid">
+                <!-- HTML5 Video & Track -->
+                <div class="video-box">
+                    <h3>Локал видео (Subtitle-тэй)</h3>
+                    <video controls preload="metadata">
+                        <source src="video/clip.mp4" type="video/mp4">
+                        <source src="video/clip.webm" type="video/webm">
+                        <track src="video/clip.mn.vtt" kind="subtitles" srclang="mn" label="Монгол хадмал" default>
+                        Таны хөтөч видео дэмжихгүй байна.
+                    </video>
+                </div>
+                <!-- YouTube Iframe -->
+                <div class="iframe-box">
+                    <h3>YouTube Видео (Итгэмжлэгдсэн суулгалт)</h3>
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="YouTube video player" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Фото Портал. Лаборатори №6.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
