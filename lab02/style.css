@@ -1,0 +1,278 @@
+/* ===== 1. Өнгө, фонтын хувьсагчид (тогтмол дизайн) ===== */
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #3730a3;
+  --accent: #f59e0b;
+  --bg: #f3f4f6;
+  --card-bg: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #d1d5db;
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Roboto", sans-serif;
+}
+
+* {
+  box-sizing: border-box; /* padding, border өргөнд нэмэгдэхгүй */
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+/* ===== 2. Толгой, навигац (position: relative/absolute) ===== */
+.site-header {
+  position: relative;            /* badge-ийн жишиг цэг */
+  background: var(--primary);
+  color: #fff;
+  padding: 32px 24px 20px;
+  text-align: center;
+}
+
+.site-title {
+  margin: 0 0 12px;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+}
+
+.badge {
+  position: absolute;            /* толгойн баруун дээд буланд */
+  top: 12px;
+  right: 16px;
+  background: var(--accent);
+  color: #1f2937;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+.nav-link:hover {
+  background: var(--primary-dark);
+}
+
+/* ===== 3. Үндсэн хэсэг, карт (box model) ===== */
+.container {
+  max-width: 760px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  margin: 0 0 8px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--accent);
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--primary-dark);
+}
+
+.lead {
+  margin: 12px 0 20px;
+  color: var(--muted);
+}
+
+/* ===== 4. Формын бүлэг, талбарууд ===== */
+.group {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px 8px;
+  margin: 0 0 20px;
+}
+
+.group-title {
+  padding: 0 10px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: #fff;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.input:invalid:not(:placeholder-shown) {
+  border-color: #dc2626;         /* буруу утга оруулсан үед улаан */
+}
+
+.input-file {
+  padding: 8px;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  gap: 8px 16px;
+}
+
+.options-column {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.option {
+  cursor: pointer;
+}
+
+/* ===== 5. Товчнууд ===== */
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-secondary:hover {
+  background: #eef2ff;
+}
+
+/* ===== 6. Tooltip (position: relative/absolute) ===== */
+.tooltip {
+  position: relative;            /* tooltip-text-ийн жишиг цэг */
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.8rem;
+  line-height: 20px;
+  text-align: center;
+  cursor: help;
+}
+
+.tooltip-text {
+  position: absolute;            /* тэмдэглэгээний дээр гарна */
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 190px;
+  padding: 8px;
+  border-radius: 6px;
+  background: var(--text);
+  color: #fff;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+
+.tooltip:hover .tooltip-text,
+.tooltip:focus .tooltip-text {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== 7. Жагсаалт, хүснэгт ===== */
+.interest-list {
+  margin: 12px 0 0;
+  padding-left: 24px;
+}
+
+.interest-list li {
+  margin-bottom: 6px;
+}
+
+.grades {
+  width: 100%;
+  margin-top: 12px;
+  border-collapse: collapse;
+}
+
+.grades th,
+.grades td {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.grades thead {
+  background: var(--primary);
+  color: #fff;
+}
+
+.grades tbody tr:nth-child(even) {
+  background: var(--bg);
+}
+
+/* ===== 8. Хөл хэсэг ===== */
+.site-footer {
+  padding: 20px;
+  background: var(--text);
+  color: #d1d5db;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+}
